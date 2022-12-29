@@ -66,12 +66,44 @@ export async function getAllImages() {
       nodes {
         sourceUrl
         slug
+        title
       }
     }
   }`)
 
   return data?.mediaItems
 }
+
+export async function getVideoContent() {
+  const data = await fetchAPI(`
+  {
+      pages(where: {name: "Video"}) {
+        nodes {
+          id
+          content
+          __typename
+        }
+      }
+  }`)
+
+  return data?.pages
+}
+
+export async function getGalleryContent() {
+  const data = await fetchAPI(`
+  {
+      pages(where: {name: "Gallery"}) {
+        nodes {
+          id
+          content
+          __typename
+        }
+      }
+  }`)
+
+  return data?.pages
+}
+
 
 export async function getAboutContent() {
   const content = await fetchAPI(`

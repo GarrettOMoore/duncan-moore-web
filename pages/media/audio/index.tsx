@@ -10,17 +10,10 @@ export default function Index() {
             </Head>
             <div className="container mx-auto h-screen w-full">
                 <MediaNav />
-                <p>Audio Stuff...</p>
-                {/* {nodes.map(({ sourceUrl, slug }) => {
-                    if (sourceUrl) {
-                        return (
-                            <div className="min-2">
-                                <Image src={sourceUrl} width={500} height={500} alt={slug} />
-                            </div>
-                        )
-                    }
-                }
-                )} */}
+                <div className="flex flex-col items-center justify-center space-y-3">
+                    <p>Featured recordings on Apple music:</p>
+                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" height="450" style={{ width: "100%", maxWidth: "660px", overflow: "hidden", background: "transparent" }} sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/playlist/website/pl.u-Wa5zGsypVax"></iframe>
+                </div>
             </div>
         </>
     )

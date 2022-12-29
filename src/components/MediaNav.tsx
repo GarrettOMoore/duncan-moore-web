@@ -16,8 +16,7 @@ const MediaNav = () => {
     return (
 
         <nav>
-            <div className={`hidden container md:flex flex-col md:flex-row md:flex-x-4 flex-wrap items-center justify-evenly mx-auto p-2 underline-offset-8`}>
-
+            <div className={`container flex flex-row md:flex-x-4 flex-wrap items-center justify-evenly mx-auto p-2 underline-offset-8`}>
                 <Link href="/media/gallery">
                     <p className={generateLinkStyles('/media/gallery')}>Gallery</p>
                 </Link>

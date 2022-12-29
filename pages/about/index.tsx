@@ -5,10 +5,15 @@ import { GetStaticProps } from 'next'
 // import HeroPost from '../components/hero-post'
 import Image from 'next/image'
 import { getAboutContent } from 'lib/api'
-
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 export default function Index({ aboutContent: { nodes }, preview }) {
-
+    const AboutDocument = ReactHtmlParser(nodes[0]?.content, {
+        transform: (node) => {
+            console.log({ node })
+        }
+    });
+    console.log({ AboutDocument })
     return (
         <>
             <Head>
@@ -18,7 +23,7 @@ export default function Index({ aboutContent: { nodes }, preview }) {
                 <p className="p-3 text-5xl m-3 uppercase opacity-20 text-center lg:text-left">About</p>
                 <div className="justify-center">
                     {/* HTML string from CMS */}
-                    <div className="flex flex-col space-y-4 items-center justify-center" dangerouslySetInnerHTML={{ __html: nodes[0]?.content }} />
+                    <div className="flex flex-col space-y-4 items-center justify-center" >{AboutDocument}</div>
 
                 </div>
             </main>

@@ -28,7 +28,7 @@ const Nav = () => {
             <Link href="/calendar">
                 <p className={generateLinkStyles('/calendar')}>Calendar</p>
             </Link>
-            <Link href="/media">
+            <Link href="/media/gallery">
                 <p className={generateLinkStyles('/media')}>Media</p>
             </Link>
             <Link href="/contact">
