@@ -1,13 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Nav from 'src/components/Nav'
-import Header from 'src/components/Header'
+import Layout from 'src/components/Layout'
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Header />
-      <Nav />
+    <Layout>
       <Component {...pageProps} />
-    </>
+    </Layout>
   )
 }

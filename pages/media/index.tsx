@@ -4,15 +4,23 @@ import { GetStaticProps } from 'next'
 // import HeroPost from '../components/hero-post'
 import { getAllImages } from 'lib/api'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import MediaNav from 'src/components/MediaNav'
 
 export default function Index({ allImages: { nodes }, preview }) {
+    const { pathname } = useRouter();
+
+
+
     return (
         <>
             <Head>
                 <title>Duncan Moore | Media</title>
             </Head>
-            <main>
-                {nodes.map(({ sourceUrl, slug }) => {
+            <div className="h-screen w-full">
+                <MediaNav />
+                {/* {nodes.map(({ sourceUrl, slug }) => {
                     if (sourceUrl) {
                         return (
                             <div className="min-2">
@@ -21,8 +29,8 @@ export default function Index({ allImages: { nodes }, preview }) {
                         )
                     }
                 }
-                )}
-            </main>
+                )} */}
+            </div>
         </>
     )
 }

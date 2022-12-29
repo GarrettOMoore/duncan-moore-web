@@ -331,7 +331,8 @@ module.exports = {
         '"Liberation Mono"',
         '"Courier New"',
       ],
-      neutral: ["NeutralFace"]
+      neutral: ["NeutralFace"],
+      quicksand: ["Quicksand"]
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],

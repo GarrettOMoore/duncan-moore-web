@@ -87,6 +87,33 @@ export async function getAboutContent() {
   return content?.pages
 }
 
+export async function getLandingContent() {
+  const content = await fetchAPI(`
+  {
+      pages(where: {name: "Home"}) {
+        nodes {
+          id
+          content
+        }
+      }
+  }`)
+
+  return content?.pages
+}
+
+export async function getBackgroundImage() {
+  const content = await fetchAPI(`
+  {
+    mediaItem (id: "cG9zdDo3MjM") {
+      id
+      sourceUrl
+      slug
+  }
+  }`)
+
+  return content
+}
+
 
 export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(

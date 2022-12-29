@@ -15,7 +15,7 @@ export default function Index({ aboutContent: { nodes }, preview }) {
                 <title>Duncan Moore | About</title>
             </Head>
             <main className="container mx-auto h-screen p-5">
-                <p className="p-3 text-5xl m-3 uppercase opacity-20 text-center md:text-left">About</p>
+                <p className="p-3 text-5xl m-3 uppercase opacity-20 text-center lg:text-left">About</p>
                 <div className="justify-center">
                     {/* HTML string from CMS */}
                     <div className="flex flex-col space-y-4 items-center justify-center" dangerouslySetInnerHTML={{ __html: nodes[0]?.content }} />
