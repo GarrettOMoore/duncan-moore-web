@@ -59,6 +59,35 @@ export async function getAllPostsWithSlug() {
   return data?.posts
 }
 
+export async function getAllImages() {
+  const data = await fetchAPI(`
+  {
+    mediaItems (first: 500) {
+      nodes {
+        sourceUrl
+        slug
+      }
+    }
+  }`)
+
+  return data?.mediaItems
+}
+
+export async function getAboutContent() {
+  const content = await fetchAPI(`
+  {
+      pages(where: {name: "Bio"}) {
+        nodes {
+          id
+          content
+        }
+      }
+  }`)
+
+  return content?.pages
+}
+
+
 export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(
     `
@@ -155,9 +184,9 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
         ...PostFields
         content
         ${
-          // Only some of the fields of a revision are considered as there are some inconsistencies
-          isRevision
-            ? `
+    // Only some of the fields of a revision are considered as there are some inconsistencies
+    isRevision
+      ? `
         revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
           edges {
             node {
@@ -173,8 +202,8 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
           }
         }
         `
-            : ''
-        }
+      : ''
+    }
       }
       posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
