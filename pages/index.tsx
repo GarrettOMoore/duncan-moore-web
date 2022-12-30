@@ -16,7 +16,7 @@ export default function Index({ landingContent: { nodes }, bgImg: { mediaItem } 
       </Head>
       <div className="container sm:mx-auto md:mx-auto h-screen w-full flex justify-center md:m-3 relative overflow-hidden md:rounded-3x shadow-2xl" >
         <Image src={snareBg} alt={mediaItem.slug} quality={100} fill style={{ objectFit: "cover", filter: "contrast(.35)" }} />
-        <p className="tracking-widest absolute text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-quicksand text-slate-50 m-3 mx-18 mt-12 h-full whitespace-normal opacity-80 lg:mt-20 xl:mt-36">Duncan Moore is a San Diego based drummer and percussionist. <br />
+        <p className="tracking-widest absolute text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-quicksand text-slate-50 m-3 mx-18 mt-8 h-full whitespace-normal opacity-80 lg:mt-20 xl:mt-36">Duncan Moore is a San Diego based drummer and percussionist. <br />
           <br />
           He works regularly in Southern California recording studios and performs with jazz, latin, rock and R&B bands.</p>
         {/* <div className="w-full m-3 h-full border-2 relative" >

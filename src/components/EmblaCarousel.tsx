@@ -3,7 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { Thumb } from './EmblaCarouselThumbsButton'
 
 const EmblaCarousel = (props) => {
-    const { slides, options, images } = props
+    const { slides, options } = props
     const [selectedIndex, setSelectedIndex] = useState(0)
     const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
     const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
@@ -38,9 +38,6 @@ const EmblaCarousel = (props) => {
                 <div className="embla__container">
                     {slides.map(({ sourceUrl, title }, index) => (
                         <div className="embla__slide" key={index}>
-                            <div className="embla__slide__number">
-                                <span>{index + 1}</span>
-                            </div>
                             <img
                                 className="embla__slide__img"
                                 src={sourceUrl}

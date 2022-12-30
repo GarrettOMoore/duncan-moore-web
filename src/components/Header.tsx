@@ -11,7 +11,9 @@ const Header = () => (
                 </div>
 
             </div>
-            <p className="md:text-3xl text-2xl text-center md:text-left font-neutral md:indent-8">Drummer | Educator</p>
+            <p className="hidden md:flex md:text-3xl text-2xl text-center md:text-left font-neutral md:indent-8">Drummer | Educator</p>
+            <p className="md:text-3xl text-2xl text-center md:hidden font-neutral md:indent-8">Drummer Educator</p>
+
         </div>
     </div>
 )
