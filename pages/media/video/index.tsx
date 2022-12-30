@@ -7,8 +7,21 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 export default function Index({ videoContent: { nodes }, preview }) {
     const VideoDocument = ReactHtmlParser(nodes[0]?.content, {
         //TODO update this at CMS lvl, this is just parsing out unwanted text from page content
-        transform: ({ type }) => {
+        transform: (node, index) => {
+            const { name, type } = node;
             if (type === 'text') return null;
+            console.log({ node })
+            if (name === 'iframe') {
+                if (node.attribs) {
+                    node.attribs.class = "w-full aspect-video mx-auto p-3"
+                }
+                return (
+
+                    <div className="w-auto">
+                        {convertNodeToElement(node, index)}
+                    </div>
+                )
+            }
         }
     });
     return (
