@@ -2,21 +2,18 @@ import Head from 'next/head'
 import { GetStaticProps } from 'next'
 import MediaNav from 'src/components/MediaNav'
 import { getVideoContent } from 'lib/api'
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser, { convertNodeToElement } from 'react-html-parser';
 
-export default function Index({ videoContent: { nodes }, preview }) {
+export default function Index({ videoContent: { nodes } }) {
     const VideoDocument = ReactHtmlParser(nodes[0]?.content, {
-        //TODO update this at CMS lvl, this is just parsing out unwanted text from page content
         transform: (node, index) => {
             const { name, type } = node;
+            // TODO update this at CMS lvl, this is just parsing out unwanted text from page content
             if (type === 'text') return null;
-            console.log({ node })
+            // Applies responsive Tailwind classes to iframes
             if (name === 'iframe') {
-                if (node.attribs) {
-                    node.attribs.class = "w-full aspect-video mx-auto p-3"
-                }
+                node.attribs.class = "w-full aspect-video mx-auto p-3"
                 return (
-
                     <div className="w-auto">
                         {convertNodeToElement(node, index)}
                     </div>
@@ -41,11 +38,10 @@ export default function Index({ videoContent: { nodes }, preview }) {
     )
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-    console.log("fetching videos...")
+export const getStaticProps: GetStaticProps = async () => {
     const videoContent = await getVideoContent()
     return {
-        props: { videoContent, preview },
+        props: { videoContent },
         revalidate: 10,
     }
 }

@@ -752,9 +752,12 @@ module.exports = {
     screens: {
       sm: '640px',
       md: '768px',
+      wide: '840px',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      tall: { 'raw': '(min-height: 800px)' },
+      short: { 'raw': '(min-height: 300px)' }
     },
     scrollMargin: ({ theme }) => ({
       ...theme('spacing'),
