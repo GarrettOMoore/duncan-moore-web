@@ -7,7 +7,7 @@ const Event = ({ event }) => {
     const { venue, address, city, date, stateprovince } = venueMain;
 
     return (
-        <div className="flex flex-col items-center md:flex-row space-y-3 md: space-x-3 ">
+        <div className="flex flex-col items-center md:flex-row space-y-3 md: space-x-8 ">
             <DateIcon date={start_date} />
             <div className="flex flex-col w-full ">
                 <a href={`/calendar/${id}`}>
@@ -15,7 +15,7 @@ const Event = ({ event }) => {
                 </a>
                 {/* TODO find a better way to parse html entities */}
                 <a href={website}>
-                    <p className="text-1xl md:text-2xl">{React.createElement("div", { dangerouslySetInnerHTML: { __html: venue } })}</p>
+                    <span className="text-1xl md:text-2xl">{React.createElement("p", { dangerouslySetInnerHTML: { __html: venue } })}</span>
                 </a>
                 <div className="flex flex-row md:space-x-2">
                     <Moment format="LT" date={start_date} />
