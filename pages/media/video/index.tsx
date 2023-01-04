@@ -26,13 +26,10 @@ export default function Index({ videoContent: { nodes } }) {
             <Head>
                 <title>Duncan Moore | Video</title>
             </Head>
-            <div className="container mx-auto h-screen w-full">
-                <MediaNav />
-
-                <div className="justify-center">
-                    {/* HTML string from CMS */}
-                    <div className="flex flex-col space-y-4 items-center justify-center">{VideoDocument}</div>
-                </div>
+            <MediaNav />
+            <div className="justify-center">
+                {/* HTML string from CMS */}
+                <div className="flex flex-col space-y-4 items-center justify-center">{VideoDocument}</div>
             </div>
         </>
     )

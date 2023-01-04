@@ -8,12 +8,10 @@ export default function Index() {
             <Head>
                 <title>Duncan Moore | Audio</title>
             </Head>
-            <div className="container mx-auto h-screen w-full">
-                <MediaNav />
-                <div className="flex flex-col items-center justify-center space-y-3">
-                    <p>Featured recordings on Apple music:</p>
-                    <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" height="450" style={{ width: "100%", maxWidth: "660px", overflow: "hidden", background: "transparent" }} sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/playlist/website/pl.u-Wa5zGsypVax"></iframe>
-                </div>
+            <MediaNav />
+            <div className="flex flex-col items-center justify-center space-y-3">
+                <p>Featured recordings on Apple music:</p>
+                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" height="450" style={{ width: "100%", maxWidth: "660px", overflow: "hidden", background: "transparent" }} sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/playlist/website/pl.u-Wa5zGsypVax"></iframe>
             </div>
         </>
     )

@@ -24,13 +24,11 @@ export default function Index({ allImages: { nodes }, galleryContent: { nodes: g
             <Head>
                 <title>Duncan Moore | Gallery</title>
             </Head>
-            <div className="container mx-auto h-screen w-full">
-                <MediaNav />
-                <section className="sandbox__carousel">
-                    <EmblaCarousel slides={sources} options={{}} />
-                </section>
+            <MediaNav />
+            <section className="sandbox__carousel">
+                <EmblaCarousel slides={sources} options={{}} />
+            </section>
 
-            </div>
         </>
     )
 }

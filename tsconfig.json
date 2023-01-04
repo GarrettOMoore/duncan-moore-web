@@ -27,7 +27,7 @@
         "lib/*"
       ],
       "pages": [
-        "pages/*"
+        "app/*"
       ],
       "public": [
         "public/*"

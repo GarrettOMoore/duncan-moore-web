@@ -4,30 +4,24 @@ import { GetStaticProps } from 'next'
 import { getAboutContent } from 'lib/api'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
-export default function Index({ aboutContent: { nodes }, preview }) {
-    const AboutDocument = ReactHtmlParser(nodes[0]?.content, {
-        transform: (node) => {
-            console.log({ node })
-        }
-    });
+export default function Index({ aboutContent: { nodes } }) {
+    const AboutDocument = ReactHtmlParser(nodes[0]?.content);
     return (
         <>
             <Head>
                 <title>Duncan Moore | About</title>
             </Head>
-            <main className="container mx-auto h-screen p-5">
-                <div className="justify-center">
-                    <div className="flex flex-col space-y-4 items-center justify-center" >{AboutDocument}</div>
-                </div>
-            </main>
+            <div className="justify-center">
+                <div className="flex flex-col space-y-4 items-center justify-center" >{AboutDocument}</div>
+            </div>
         </>
     )
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getStaticProps: GetStaticProps = async () => {
     const aboutContent = await getAboutContent()
     return {
-        props: { aboutContent, preview },
+        props: { aboutContent },
         revalidate: 10,
     }
 }

@@ -24,11 +24,16 @@ export default function Index({ landingContent: { nodes } }) {
     <>
       <Head>
         <title className="">Duncan Moore | Drums</title>
+        <link rel="icon" type="image/x-icon" href="public/favicon/favicon.ico" />
       </Head>
-      <div className="container h-screen w-full flex justify-center relative overflow-hidden shadow-2xl sm:mx-auto md:mx-auto md:m-3 md:rounded-3x" >
-        <Image src={snareBg} alt="Snare drum photo by Lasse Moller" quality={100} fill style={{ objectFit: "cover", filter: "contrast(.35)" }} />
-        <p className="tracking-widest absolute translate-y-1/2 short:transform-none text-2xl h-auto mx-18 mt-4 whitespace-normal opacity-80 font-quicksand text-slate-50 m-3 sm:text-1xl md:text-2xl md:mt-4 lg:text-5xl lg:mt-12 xl:mt-28 xl:text-7xl">{aboutText}</p>
+      <div className="container">
+
+        <div className="h-screen w-full flex justify-center relative overflow-hidden shadow-2xl sm:mx-auto md:mx-auto md:m-3 md:rounded-3x" >
+          <Image src={snareBg} alt="Snare drum photo by Lasse Moller" quality={100} fill style={{ objectFit: "cover", filter: "contrast(.35)" }} />
+          <p className="tracking-widest text-center absolute top-64 sm:top-1/2 -translate-y-1/2 text-2xl h-auto mx-18 mt-4 whitespace-normal opacity-80 font-quicksand text-slate-50 m-3 sm:text-md md:text-xl md:mt-4 lg:text-4xl lg:mt-12 xl:mt-28 xl:text-5xl">{aboutText}</p>
+        </div>
       </div>
+
       <p className="text-sm text-center m-2">Photo by <a href="https://unsplash.com/@lalasse">Lasse Møller</a></p>
     </>
   )

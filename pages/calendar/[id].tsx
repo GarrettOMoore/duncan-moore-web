@@ -1,10 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment'
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
-import { useEffect, useState } from 'react';
-import Event from 'src/components/Event'
-import { stat } from 'fs';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -13,15 +9,15 @@ const containerStyle = {
 };
 
 export default function Index({ event, coords }) {
-    const { start_date, end_date, slug, id, title, website = "", venue: venueMain } = event;
-    const { venue, address, city, date, stateprovince } = venueMain;
+    const { start_date, end_date, title, venue: venueMain } = event;
+    const { venue, address, city, stateprovince } = venueMain;
     const center = coords[0].geometry.location;
     return (
         <>
             <Head>
                 <title>{`Duncan Moore | ${title}`}</title>
             </Head>
-            <div className="container mx-auto h-screen w-full my-3 flex flex-col items-center space-y-4">
+            <div className="my-3 flex flex-col items-center space-y-4 p-3">
                 <p className="text-center text-3xl"> {title} </p>
                 <span className="text-1xl md:text-2xl">{React.createElement("div", { dangerouslySetInnerHTML: { __html: venue } })}</span>
                 <div className="flex flex-row md:space-x-2">
@@ -31,6 +27,8 @@ export default function Index({ event, coords }) {
                 </div>
                 <p>{address}</p>
                 <p>{`${city}, ${stateprovince}`}</p>
+                {/* <div className="h-96 w-full relative border-8 border-red-500 overflow-scroll"> */}
+
                 <LoadScript
                     googleMapsApiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
                 >
@@ -42,6 +40,7 @@ export default function Index({ event, coords }) {
                         <Marker position={center} />
                     </GoogleMap>
                 </LoadScript>
+                {/* </div> */}
             </div>
         </>
     )
