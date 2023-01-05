@@ -11,7 +11,8 @@ const containerStyle = {
 export default function Index({ event, coords }) {
     const { start_date, end_date, title, venue: venueMain } = event;
     const { venue, address, city, stateprovince } = venueMain;
-    const center = coords[0].geometry.location;
+    const center = coords[0]?.geometry?.location;
+    console.log({ center })
     return (
         <>
             <Head>
@@ -27,20 +28,21 @@ export default function Index({ event, coords }) {
                 </div>
                 <p>{address}</p>
                 <p>{`${city}, ${stateprovince}`}</p>
-                {/* <div className="h-96 w-full relative border-8 border-red-500 overflow-scroll"> */}
-
-                <LoadScript
-                    googleMapsApiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
-                >
-                    <GoogleMap
-                        mapContainerStyle={containerStyle}
-                        center={center}
-                        zoom={13}
-                    >
-                        <Marker position={center} />
-                    </GoogleMap>
-                </LoadScript>
-                {/* </div> */}
+                <div className="h-56 sm:h-72 w-full sm:w-1/2 overflow-hidden">
+                    {center && (
+                        <LoadScript
+                            googleMapsApiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY}
+                        >
+                            <GoogleMap
+                                mapContainerStyle={containerStyle}
+                                center={center}
+                                zoom={13}
+                            >
+                                <Marker position={center} />
+                            </GoogleMap>
+                        </LoadScript>
+                    )}
+                </div>
             </div>
         </>
     )

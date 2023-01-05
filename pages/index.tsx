@@ -30,7 +30,7 @@ export default function Index({ landingContent: { nodes } }) {
 
         <div className="h-screen w-full flex justify-center relative overflow-hidden shadow-2xl sm:mx-auto md:mx-auto md:m-3 md:rounded-3x" >
           <Image src={snareBg} alt="Snare drum photo by Lasse Moller" quality={100} fill style={{ objectFit: "cover", filter: "contrast(.35)" }} />
-          <p className="tracking-widest text-center absolute top-64 sm:top-1/2 -translate-y-1/2 text-2xl h-auto mx-18 mt-4 whitespace-normal opacity-80 font-quicksand text-slate-50 m-3 sm:text-md md:text-xl md:mt-4 lg:text-4xl lg:mt-12 xl:mt-28 xl:text-5xl">{aboutText}</p>
+          <p className="tracking-widest text-center absolute top-64 sm:top-1/2 -translate-y-1/2 text-1xl h-auto mx-18 mt-4 whitespace-normal opacity-80 font-quicksand text-slate-50 m-3 sm:text-md md:text-xl md:mt-4 lg:text-4xl lg:mt-12 xl:mt-16 xl:text-5xl">{aboutText}</p>
         </div>
       </div>
 
