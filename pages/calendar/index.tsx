@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Event from 'src/components/Event'
 
 export default function Index({ events }) {
-
+    console.log({ events })
     return (
         <>
             <Head>
@@ -23,5 +23,5 @@ export async function getStaticProps({ params }) {
     const res = await fetch("https://duncanmoore.net/wp-json/tribe/events/v1/events/", { method: 'GET' });
     const { events } = await res.json()
 
-    return { props: { events } }
+    return { props: { events }, revalidate: 10 }
 }

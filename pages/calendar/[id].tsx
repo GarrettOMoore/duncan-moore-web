@@ -68,5 +68,5 @@ export async function getStaticProps({ params }) {
         coords = await coordRes.json();
     }
 
-    return { props: { event, coords: coords.results } }
+    return { props: { event, coords: coords.results }, revalidate: 10 }
 }
